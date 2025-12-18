@@ -150,3 +150,25 @@ button {
         left: 50%;
     }
 }
+
+/* Recruiter score explanation box */
+.score-explanation {
+    background-color: #eef3f7;
+    border-left: 4px solid #2c3e50;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.score-explanation ul {
+    margin: 8px 0 8px 18px;
+}
+
+/* Candidate card */
+.candidate-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}

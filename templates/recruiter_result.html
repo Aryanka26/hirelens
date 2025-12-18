@@ -2,13 +2,29 @@
 
 {% block content %}
 
-<h2>Candidate Ranking – {{ role }}</h2>
+<h2>HireLens Candidate Ranking – {{ role }}</h2>
+
+<!-- 🔹 SCORE EXPLANATION (ONCE, AT THE TOP) -->
+<div class="score-explanation">
+    <strong>How is the score calculated?</strong>
+    <p>
+        The alignment score represents how well each candidate’s resume matches the selected role.
+        It is computed using a weighted combination of:
+    </p>
+    <ul>
+        <li><strong>Skill Coverage:</strong> Presence of required role-specific skills in the resume</li>
+        <li><strong>Text Similarity:</strong> NLP-based similarity between resume content and the job description</li>
+    </ul>
+    <p>
+        This approach prioritizes relevant skills while maintaining contextual matching.
+    </p>
+</div>
 
 {% for candidate in results %}
-    <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:6px;">
+    <div class="candidate-card">
         <h3>Rank {{ loop.index }}</h3>
         <p><strong>Candidate ID:</strong> {{ candidate.resume_hash }}</p>
-        <p><strong>Job - Alignment Score:</strong> {{ candidate.score }}%</p>
+        <p><strong>Match Score:</strong> {{ candidate.score }}%</p>
 
         <p><strong>Present Skills:</strong>
             {{ candidate.present | join(", ") }}
