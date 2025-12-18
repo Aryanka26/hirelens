@@ -11,3 +11,10 @@ def analyze_skill_gap(resume_text, required_skills):
             missing.append(skill)
 
     return present, missing
+
+
+def calculate_skill_score(present, required):
+    if not required:
+        return 0
+    return round((len(present) / len(required)) * 100, 2)
+

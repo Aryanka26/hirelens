@@ -8,7 +8,7 @@
     <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:6px;">
         <h3>Rank {{ loop.index }}</h3>
         <p><strong>Candidate ID:</strong> {{ candidate.resume_hash }}</p>
-        <p><strong>Match Score:</strong> {{ candidate.score }}%</p>
+        <p><strong>Job - Alignment Score:</strong> {{ candidate.score }}%</p>
 
         <p><strong>Present Skills:</strong>
             {{ candidate.present | join(", ") }}

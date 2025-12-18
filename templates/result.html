@@ -3,7 +3,23 @@
 {% block content %}
 
 <h2>Target Role: {{ role }}</h2>
-<h3>Match Score: {{ score }}%</h3>
+<h3>
+    Resume–Job Alignment Score: {{ score }}%
+    <span class="tooltip">
+        ⓘ
+        <span class="tooltip-text">
+            This score represents how well the resume aligns with the selected role.
+            It is computed using a weighted combination of:
+            <br><br>
+            <strong>• Skill Coverage:</strong> Percentage of required role-specific skills present in the resume.
+            <br>
+            <strong>• Text Similarity:</strong> NLP-based similarity between resume content and the job description.
+            <br><br>
+            This approach improves interpretability compared to raw text similarity alone.
+        </span>
+    </span>
+</h3>
+
 
 <h3>Present Skills</h3>
 <ul>

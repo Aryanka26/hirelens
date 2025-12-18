@@ -39,12 +39,20 @@ def index():
             match_score = calculate_match_score(resume_text, job_text)
             present, missing = analyze_skill_gap(resume_text, ROLE_SKILLS[role])
 
+            from model.skill_gap import calculate_skill_score
+            skill_score = calculate_skill_score(present, ROLE_SKILLS[role])
+
+            final_score = round(
+                0.8 * skill_score + 0.2 * match_score,
+                2
+            )
+
             resume_hash = generate_resume_hash(resume_text)
-            save_analysis(user_type, role, match_score, present, missing, resume_text)
+            save_analysis(user_type, role, final_score, present, missing, resume_text)
 
             results.append({
                 "resume_hash": resume_hash[:10],
-                "score": match_score,
+                "score": final_score,
                 "present": present,
                 "missing": missing
             })
