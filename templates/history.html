@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Analysis History</h2>
+
+{% if history %}
+    {% for entry in history %}
+        <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:6px;">
+            <p><strong>Role:</strong> {{ entry.role.upper() }}</p>
+            <p><strong>Match Score:</strong> {{ entry.score }}%</p>
+            <p><strong>Resume ID:</strong> {{ entry.resume_hash }}</p>
+            <p><strong>Timestamp:</strong> {{ entry.timestamp }}</p>
+
+            <p><strong>Present Skills:</strong>
+                {{ entry.present | join(", ") }}
+            </p>
+
+            <p><strong>Missing Skills:</strong>
+                {{ entry.missing | join(", ") }}
+            </p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No analysis history found.</p>
+{% endif %}
+
+<a href="/">← Back to Analyzer</a>
+
+{% endblock %}

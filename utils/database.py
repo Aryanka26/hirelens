@@ -51,3 +51,30 @@ def save_analysis(role, score, present, missing, resume_text):
 
 def generate_resume_hash(resume_text):
     return hashlib.sha256(resume_text.encode("utf-8")).hexdigest()
+
+
+def fetch_analysis_history():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT role, match_score, present_skills, missing_skills, resume_hash, timestamp
+        FROM analysis_history
+        ORDER BY timestamp DESC
+    """)
+
+    rows = cursor.fetchall()
+    conn.close()
+
+    history = []
+    for row in rows:
+        history.append({
+            "role": row[0],
+            "score": row[1],
+            "present": row[2].split(",") if row[2] else [],
+            "missing": row[3].split(",") if row[3] else [],
+            "resume_hash": row[4][:10],  # short hash for display
+            "timestamp": row[5]
+        })
+
+    return history

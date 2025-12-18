@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import os
-from utils.database import init_db, save_analysis
+from utils.database import init_db, save_analysis, fetch_analysis_history
 
 from utils.text_extractor import extract_text_from_pdf, clean_text
 from model.matcher import calculate_match_score
@@ -48,6 +48,12 @@ def index():
         )
 
     return render_template("index.html")
+
+
+@app.route("/history")
+def history():
+    history_data = fetch_analysis_history()
+    return render_template("history.html", history=history_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
