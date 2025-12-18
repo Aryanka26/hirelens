@@ -1,0 +1,10 @@
+We are looking for a Machine Learning Intern with strong proficiency in Python
+and experience working with data analysis and machine learning libraries such
+as NumPy, Pandas, and scikit-learn.
+
+The candidate should have a basic understanding of supervised and unsupervised
+learning, data preprocessing, feature engineering, and model evaluation.
+Familiarity with statistics, probability, and linear algebra is a plus.
+
+Experience with data visualization, exploratory data analysis, and basic
+machine learning projects is preferred.
