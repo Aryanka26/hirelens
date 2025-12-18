@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    <label><strong>Select Target Role:</strong></label><br>
+    <select name="role" required>
+        <option value="sde_intern">SDE Intern</option>
+        <option value="ml_intern">ML Intern</option>
+    </select>
+    <br><br>
+
+    <label><strong>Upload Resume (PDF):</strong></label><br>
+    <input type="file" name="resume" accept=".pdf" required>
+    <br><br>
+
+    <button type="submit">Analyze Resume</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Target Role: {{ role }}</h2>
+<h3>Match Score: {{ score }}%</h3>
+
+<h3>Present Skills</h3>
+<ul>
+    {% for skill in present %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Missing Skills</h3>
+<ul>
+    {% for skill in missing %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<a href="/">Analyze another resume</a>
+
+{% endblock %}
