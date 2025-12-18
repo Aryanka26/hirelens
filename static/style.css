@@ -125,3 +125,50 @@ button:hover {
         margin: 20px auto;
     }
 }
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 6px;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+/* Tooltip text (HIDDEN by default) */
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+
+    width: 260px;
+    background-color: #1f2933;
+    color: #ffffff;
+    text-align: left;
+    padding: 10px;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 100;
+    top: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 0.8rem;
+    line-height: 1.4;
+
+    transition: opacity 0.2s ease;
+}
+
+/* Show tooltip ONLY on hover */
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile support: tap-friendly */
+@media (max-width: 768px) {
+    .tooltip-text {
+        width: 90vw;
+    }
+}
